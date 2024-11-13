@@ -28,7 +28,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="h-24 w-full sticky top-0 md:p-8 px-2 py-8">
+    <header className="h-24 w-full sticky top-0 bg-white z-50 md:p-8 px-2 py-8 shadow-md">
       <div className="max-w-container flex items-center justify-between md:px-0 px-4 gap-6 mx-auto">
         <img src="./images/logo.svg" alt="shortly" className="" />
 
