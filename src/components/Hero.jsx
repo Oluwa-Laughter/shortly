@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="w-full px-8 py-8">
+    <section className="w-full px-8 py-16">
       <div className="max-w-container mx-auto flex flex-col-reverse md:flex-row items-center gap-12 ">
         <div className="flex flex-col gap-4 justify-center items-center md:items-start ">
           <h1 className="text-black font-bold text-center md:text-start text-5xl ">
@@ -11,14 +11,14 @@ const Hero = () => {
             your links are performing
           </p>
 
-          <button className="text-white bg-primary w-48 p-2 rounded-full py-3 px-6 font-medium text-sm">
+          <button className=" w-fit text-white font-bold rounded-[100vmax] bg-primary bg-opacity-75 px-6 py-3 text-sm transition-all duration-300 hover:bg-opacity-100">
             Get Started
           </button>
         </div>
         <div className="flex items-center justify-end relative ">
           <img
             src="/public/images/illustration-working.svg"
-            className=""
+            className="w-full h-auto"
             alt="illustration-working"
           />
         </div>

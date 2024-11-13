@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa6";
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const [hasShadow, setHasShadow] = useState(false);
 
   const handleMenuClick = () => {
     setNavOpen(!navOpen);
@@ -20,15 +21,29 @@ const Header = () => {
       }
     };
 
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setHasShadow(true);
+      } else {
+        setHasShadow(false);
+      }
+    };
+
     window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <header className="h-24 w-full sticky top-0 bg-white z-50 md:p-8 px-2 py-8 shadow-md">
+    <header
+      className={`h-24 w-full sticky top-0 bg-white z-50 md:p-8 px-2 py-8 ${
+        hasShadow ? "shadow-md" : ""
+      }`}
+    >
       <div className="max-w-container flex items-center justify-between md:px-0 px-4 gap-6 mx-auto">
         <img src="./images/logo.svg" alt="shortly" className="" />
 

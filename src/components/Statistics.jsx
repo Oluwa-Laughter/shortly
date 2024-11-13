@@ -20,7 +20,7 @@ const CardData = [
 
 const Statistics = () => {
   return (
-    <section className="bg-slate-200 w-full px-8 py-24">
+    <section className="bg-slate-100 w-full px-8 py-24">
       <div className="max-w-container mx-auto flex flex-col items-center justify-center">
         <div className="mb-16 text-center">
           <h2 className="text-veryDarkViolet font-bold text-4xl">
