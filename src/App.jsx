@@ -8,8 +8,8 @@ function App() {
         <Hero />
         <Statistics />
         <CallToAction />
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

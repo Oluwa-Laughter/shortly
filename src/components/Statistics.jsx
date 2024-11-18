@@ -1,3 +1,5 @@
+import Shortener from "./Shortener";
+
 const CardData = [
   {
     image: "images/icon-brand-recognition.svg",
@@ -20,10 +22,11 @@ const CardData = [
 
 const Statistics = () => {
   return (
-    <section className="bg-slate-100 w-full px-8 py-24">
-      <div className="max-w-container mx-auto flex flex-col items-center justify-center">
+    <section className="bg-slate-100 w-full pt-32 pb-24 p-3 relative">
+      <Shortener />
+      <div className="max-w-container mx-auto pt-20 flex flex-col items-center justify-center">
         <div className="mb-16 text-center">
-          <h2 className="text-veryDarkViolet font-bold text-4xl">
+          <h2 className="text-veryDarkViolet p-1 font-bold text-4xl">
             Advanced Statistics
           </h2>
           <p className="text-sm font-medium text-black text-opacity-60 sm:w-[45ch] sm:text-base">
