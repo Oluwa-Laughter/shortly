@@ -29,13 +29,13 @@ const Statistics = () => {
           <h2 className="text-veryDarkViolet p-1 font-bold text-4xl">
             Advanced Statistics
           </h2>
-          <p className="text-sm font-medium text-black text-opacity-60 sm:w-[45ch] sm:text-base">
+          <p className="text-sm font-medium text-black text-opacity-60">
             Track how your links are performing across the web with our advanced
             statistics dashboard.
           </p>
         </div>
 
-        <div className="flex flex-col gap-6 sm:gap-4 md:flex-row lg:gap-8">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-8">
           {CardData.map((item, index) => (
             <article
               key={index}
