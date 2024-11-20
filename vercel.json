@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/s/:slug",
-      "destination": "/api/[slug]"
+      "src": "/s/(.*)",
+      "dest": "/api/s/[...slug].js"
     }
-  ]
+  ],
+  "env": {
+    "VITE_SUPABASE_URL": "@vite_supabase_url",
+    "VITE_SUPABASE_KEY": "@vite_supabase_key"
+  }
 }

@@ -15,8 +15,6 @@ export default function Shortener() {
   const [error, setError] = useState(null);
   const [inputURL, setInputURL] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  // State to store the shortened URLs
   const [resultURL, setResultURL] = useState(() => {
     const savedLinks = localStorage.getItem("links");
     return savedLinks ? JSON.parse(savedLinks) : [];
@@ -50,7 +48,7 @@ export default function Shortener() {
       }
 
       const slug = generateSlug();
-      // Use your domain or localhost for development
+      // Use the actual deployment URL
       const shortURL = `${window.location.origin}/s/${slug}`;
 
       // Standardize the input URL
@@ -81,8 +79,6 @@ export default function Shortener() {
         setResultURL((prev) => [newLink, ...prev]);
         setInputURL(""); // Clear input after successful submission
       }
-
-      console.log(data);
     } catch (err) {
       setError(err.message || "An error occurred");
       console.error(err);
