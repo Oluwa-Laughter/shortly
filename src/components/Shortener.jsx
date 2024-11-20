@@ -42,16 +42,16 @@ export default function Shortener() {
       setIsLoading(true);
       setError(null);
 
-      // Validate URL
+      // To Validate URL
       if (!validateURL(inputURL)) {
         throw new Error("Please enter a valid URL");
       }
 
       const slug = generateSlug();
-      // Use the actual deployment URL
+      // Using the deployment URL to create the short URL
       const shortURL = `${window.location.origin}/s/${slug}`;
 
-      // Standardize the input URL
+      // Improvng the input URL
       const formattedURL = inputURL.startsWith("http")
         ? inputURL
         : `https://${inputURL}`;
@@ -77,7 +77,7 @@ export default function Shortener() {
           createdAt: new Date().toISOString(),
         };
         setResultURL((prev) => [newLink, ...prev]);
-        setInputURL(""); // Clear input after successful submission
+        setInputURL("");
       }
     } catch (err) {
       setError(err.message || "An error occurred");
