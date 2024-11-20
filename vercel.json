@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/s/:slug",
-      "dest": "/api/[slug]"
+      "source": "/s/:slug",
+      "destination": "/api/[slug]"
     }
   ]
 }
