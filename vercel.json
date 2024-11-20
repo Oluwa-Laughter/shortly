@@ -2,12 +2,8 @@
   "version": 2,
   "routes": [
     {
-      "src": "/s/(.*)",
-      "dest": "/api/s/[...slug].js"
+      "src": "/s/:slug",
+      "dest": "/api/s/[slug]"
     }
-  ],
-  "env": {
-    "VITE_SUPABASE_URL": "@vite_supabase_url",
-    "VITE_SUPABASE_KEY": "@vite_supabase_key"
-  }
+  ]
 }
