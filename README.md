@@ -73,21 +73,26 @@ const handleFetch = async () => {
     setIsLoading(true);
     setError(null);
 
-    // Validate URL
+    // Check if input URL length shorter than 30
+    if (inputURL.length < 30) {
+      throw new Error("Please enter a longer URL");
+    }
+
+    // To Validate URL
     if (!validateURL(inputURL)) {
       throw new Error("Please enter a valid URL");
     }
 
     const slug = generateSlug();
-    // Use the actual deployment URL
-    const shortURL = `${window.location.origin}/s/${slug}`;
+    // Using the deployment URL to create the short URL
+    const shortURL = `${window.location.origin}/${slug}`;
 
-    // Improve the input URL
+    // Improving the input URL
     const formattedURL = inputURL.startsWith("http")
       ? inputURL
       : `https://${inputURL}`;
 
-    const { data, error: supabaseError } = await supabase
+    const { data, error } = await supabase
       .from("shortly")
       .insert([
         {
@@ -99,7 +104,7 @@ const handleFetch = async () => {
       .select()
       .single();
 
-    if (supabaseError) throw new Error(supabaseError.message);
+    if (error) throw new Error(error.message);
 
     if (data) {
       const newLink = {
@@ -108,11 +113,10 @@ const handleFetch = async () => {
         createdAt: new Date().toISOString(),
       };
       setResultURL((prev) => [newLink, ...prev]);
-      setInputURL(""); // Clear input after successful submission
+      setInputURL("");
     }
   } catch (err) {
     setError(err.message || "An error occurred");
-    console.error(err);
   } finally {
     setIsLoading(false);
   }

@@ -43,6 +43,11 @@ export default function Shortener() {
       setIsLoading(true);
       setError(null);
 
+      // Check if input URL length shorter than 30
+      if (inputURL.length < 30) {
+        throw new Error("Please enter a longer URL");
+      }
+
       // To Validate URL
       if (!validateURL(inputURL)) {
         throw new Error("Please enter a valid URL");
@@ -51,12 +56,13 @@ export default function Shortener() {
       const slug = generateSlug();
       // Using the deployment URL to create the short URL
       const shortURL = `${window.location.origin}/${slug}`;
-      // Improvng the input URL
+
+      // Improving the input URL
       const formattedURL = inputURL.startsWith("http")
         ? inputURL
         : `https://${inputURL}`;
 
-      const { data, error: supabaseError } = await supabase
+      const { data, error } = await supabase
         .from("shortly")
         .insert([
           {
@@ -68,7 +74,7 @@ export default function Shortener() {
         .select()
         .single();
 
-      if (supabaseError) throw new Error(supabaseError.message);
+      if (error) throw new Error(error.message);
 
       if (data) {
         const newLink = {
@@ -81,7 +87,6 @@ export default function Shortener() {
       }
     } catch (err) {
       setError(err.message || "An error occurred");
-      console.error(err);
     } finally {
       setIsLoading(false);
     }
