@@ -128,7 +128,7 @@ const handleFetch = async () => {
 
 ## Author
 
-- Website - [Portfolio](https://isaacmakinde.vercel.app/)
+- Portfolio - [Isaac Makinde](https://isaacmakinde.vercel.app/)
 - Frontend Mentor - [Oluwa-Laughter](https://www.frontendmentor.io/profile/Oluwa-Laughter)
 - Twitter - [LAUGHTER](https://www.twitter.com/isaacmakinde_)
 - Linkedin - [Isaac Makinde](https://www.linkedin.com/in/isaacmakinde/)

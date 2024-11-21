@@ -15,6 +15,7 @@ export default function Shortener() {
   const [error, setError] = useState(null);
   const [inputURL, setInputURL] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   const [resultURL, setResultURL] = useState(() => {
     const savedLinks = localStorage.getItem("links");
     return savedLinks ? JSON.parse(savedLinks) : [];
@@ -32,8 +33,8 @@ export default function Shortener() {
 
   const generateSlug = () => {
     return (
-      Math.random().toString(36).substring(2, 8) +
-      Date.now().toString(36).substring(-4)
+      Math.random().toString(36).substring(2, 5) +
+      Date.now().toString(36).substring(1, 3)
     );
   };
 
@@ -49,7 +50,7 @@ export default function Shortener() {
 
       const slug = generateSlug();
       // Using the deployment URL to create the short URL
-      const shortURL = `${window.location.origin}/s/${slug}`;
+      const shortURL = `https://short.ly/${slug}`;
 
       // Improvng the input URL
       const formattedURL = inputURL.startsWith("http")
