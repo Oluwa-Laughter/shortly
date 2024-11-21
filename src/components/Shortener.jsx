@@ -50,8 +50,7 @@ export default function Shortener() {
 
       const slug = generateSlug();
       // Using the deployment URL to create the short URL
-      const shortURL = `https://short.ly/s/${slug}`;
-
+      const shortURL = `${window.location.origin}/${slug}`;
       // Improvng the input URL
       const formattedURL = inputURL.startsWith("http")
         ? inputURL
