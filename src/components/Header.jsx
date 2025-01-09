@@ -38,6 +38,14 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (navOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [navOpen]);
+
   return (
     <header
       className={`h-24 w-full sticky top-0 bg-white z-50 md:p-8 px-2 py-8 ${
